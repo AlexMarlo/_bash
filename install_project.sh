@@ -169,6 +169,22 @@ fi
 
 sudo mkdir $dest_dir/$project_name/var
 sudo chown -R $user:$group $dest_dir/$project_name
+if [ $limb_version -eq 3 ]; then
+echo "x"
+elif [ $limb_version -eq 2 ]; then
+cat > $dest_dir/$project_name/setup.override.php << EOF
+<?php
+define('DB_DSN', 'mysql://root:test@localhost/$project_name?charset=utf8');
+EOF
+elif [ $limb_version -eq 1 ]; then
+cat > $dest_dir/$project_name/setup.override.php  << EOF
+<?php
+define('DB_DSN', 'mysql://root:test@localhost/$project_name?charset=utf8');
+EOF
+fi
+
 sudo chmod 777 $dest_dir/$project_name/var
 
 php $dest_dir/$project_name/cli/load.php
+#su -c "firefox $project_name" $user
+#su -c "firefox $project_name/admin" $user
