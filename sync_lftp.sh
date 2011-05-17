@@ -1,4 +1,4 @@
-#! /bin/env bach
+#!/usr/bin/env bash
 
 min_params_count="5"
 max_params_count="5"
