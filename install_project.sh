@@ -107,18 +107,18 @@ cat > $a2_vhosts_path/$project_name << EOF
 <VirtualHost $max_host_ip:80>
   RewriteEngine on 
   ServerAdmin admin@localhost
-  DocumentRoot ${DEFAULT_PROJECTS_PATH}$project_name/www
+  DocumentRoot \${DEFAULT_PROJECTS_PATH}$project_name/www
   ServerName $project_name
   ServerAlias $project_name
 
-  ErrorLog ${DEFAULT_PROJECTS_PATH}apache_errors.log
-  CustomLog ${DEFAULT_PROJECTS_PATH}access.log combined
+  ErrorLog \${DEFAULT_PROJECTS_PATH}apache_errors.log
+  CustomLog \${DEFAULT_PROJECTS_PATH}access.log combined
 
-  Alias /shared/wysiwyg ${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/wysiwyg/shared
-  Alias /shared/js ${DEFAULT_PROJECTS_PATH}lib/limb/js/shared
-  Alias /shared/calendar ${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/calendar/shared
-  Alias /shared/base ${DEFAULT_PROJECTS_PATH}$project_name/lib/bitcms/base/shared
-  Alias /shared/cms ${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/cms/shared
+  Alias /shared/wysiwyg \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/wysiwyg/shared
+  Alias /shared/js \${DEFAULT_PROJECTS_PATH}lib/limb/js/shared
+  Alias /shared/calendar \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/calendar/shared
+  Alias /shared/base \${DEFAULT_PROJECTS_PATH}$project_name/lib/bitcms/base/shared
+  Alias /shared/cms \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/cms/shared
 </VirtualHost>
 EOF
 elif [ $limb_version -eq 2 ]; then
