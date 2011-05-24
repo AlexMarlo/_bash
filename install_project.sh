@@ -165,9 +165,11 @@ if [ "svn" = `expr match "$sour_rep" '.*\(svn\).*'` ]; then
   svn checkout $sour_rep $dest_dir/$project_name
 elif [ "git" = `expr match "$sour_rep" '.*\(git\).*'` ]; then
   git clone $sour_rep $dest_dir/$project_name
+  php $sour_rep $dest_dir/$project_name/cli/export_externals.php
 fi
 
 sudo mkdir $dest_dir/$project_name/var
+
 sudo chown -R $user:$group $dest_dir/$project_name
 if [ $limb_version -eq 3 ]; then
 echo "x"
@@ -182,6 +184,7 @@ cat > $dest_dir/$project_name/setup.override.php  << EOF
 define('DB_DSN', 'mysql://root:test@localhost/$project_name?charset=utf8');
 EOF
 fi
+
 
 sudo chmod 777 $dest_dir/$project_name/var
 
