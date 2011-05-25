@@ -115,7 +115,7 @@ cat > $a2_vhosts_path/$project_name << EOF
   CustomLog \${DEFAULT_PROJECTS_PATH}access.log combined
 
   Alias /shared/wysiwyg \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/wysiwyg/shared
-  Alias /shared/js \${DEFAULT_PROJECTS_PATH}lib/limb/js/shared
+  Alias /shared/js \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/js/shared
   Alias /shared/calendar \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/calendar/shared
   Alias /shared/base \${DEFAULT_PROJECTS_PATH}$project_name/lib/bitcms/base/shared
   Alias /shared/cms \${DEFAULT_PROJECTS_PATH}$project_name/lib/limb/cms/shared
