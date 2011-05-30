@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
 then
-  svn status | grep -v "^$" | sed -e "/limb/d"
+  svn status | sed "/^$/d;/Performing status on external item at/d;/^X/d"
   exit 0
 elif [ $# -gt 1 ]
 then
@@ -10,5 +10,5 @@ then
   exit 1
 fi
 
-svn status $1 | grep -v "^$" | sed -e "/limb/d"
+svn status $1 | sed "/^$/d;/Performing status on external item at/d;/^X/d"
 
