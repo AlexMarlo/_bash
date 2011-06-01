@@ -30,13 +30,13 @@ elif [ -d $project_dir/lib/bitcms ]
 then
 bitcms_dir="bitcms"
 fi
-
+#~ http://ioffice.bit-creative.com:8666/svn/webdev/
 svn pg svn:externals $project_dir/lib/$bitcms_dir/ | sed -e 's/svn:\/\/svn\.bit/http:\/\/ioffice\.bit-creative\.com\:8666\/svn\/webdev/' > $tmp_file
 svn ps svn:externals -F $tmp_file $project_dir/lib/$bitcms_dir
 
 svn up $project_dir/lib/limb/
 svn up $project_dir/lib/$bitcms_dir/
 
-svn revert $dest_dir/$project_name/lib/limb/
-svn revert $dest_dir/$project_name/lib/$bitcms_dir/
+svn revert $dest_dir/lib/limb/
+svn revert $dest_dir/lib/$bitcms_dir/
 #*********************************
