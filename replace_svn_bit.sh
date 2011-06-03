@@ -37,6 +37,6 @@ svn ps svn:externals -F $tmp_file $project_dir/lib/$bitcms_dir
 svn up $project_dir/lib/limb/
 svn up $project_dir/lib/$bitcms_dir/
 
-svn revert $dest_dir/lib/limb/
-svn revert $dest_dir/lib/$bitcms_dir/
+svn revert $project_dir/lib/limb/
+svn revert $project_dir/lib/$bitcms_dir/
 #*********************************
