@@ -159,7 +159,7 @@ echo "Host created!"
 
 echo "install project from repo"
 
-mkdir $dest_dir/$project_name
+mkdir -p $dest_dir/$project_name
 
 if [ "svn" = `expr match "$sour_rep" '.*\(svn\).*'` ]; then
   svn checkout $sour_rep $dest_dir/$project_name
@@ -173,6 +173,7 @@ sudo mkdir $dest_dir/$project_name/var
 sudo chown -R $user:$group $dest_dir/$project_name
 if [ $limb_version -eq 3 ]; then
 echo "x"
+#~ php $dest_dir/$project_name/cli/export_externals.php
 elif [ $limb_version -eq 2 ]; then
 cat > $dest_dir/$project_name/setup.override.php << EOF
 <?php

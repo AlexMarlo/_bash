@@ -2,7 +2,7 @@
 
 min_params_count="5"
 max_params_count="5"
-example_cli="$0 <login> <pass> <ftp remote dir> <remote dir> <local dir>"
+example_cli="$0 <login> <pass> <ftp remote domain> <remote dir> <local dir>"
 
 if [ $# -lt $min_params_count ]
 then
