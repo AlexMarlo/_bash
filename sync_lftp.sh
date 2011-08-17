@@ -22,7 +22,7 @@ ftp_remote_domain=$3
 remote_dir=$4
 local_dir=$5
 
-lftp 'mirror -R $local_dir $remote_dir; bye;' -u $login,$pass $ftp_remote_domain
+lftp -e "mirror -R $local_dir $remote_dir; bye;" -u $login,$pass $ftp_remote_domain
 #lftp -p 21 -u $login,$pass $ftp_remote_domain/$remote_dir << cmd
 #mirror -R -c -v --log=/var/log/lftp.log $local_dir
 #quit

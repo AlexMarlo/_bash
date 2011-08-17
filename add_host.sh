@@ -96,7 +96,7 @@ cat > $a2_vhosts_path/$project_name << EOF
 <VirtualHost $max_host_ip:80>
   RewriteEngine on 
   ServerAdmin admin@localhost
-  DocumentRoot \${DEFAULT_PROJECTS_PATH}$project_name
+  DocumentRoot \${DEFAULT_PROJECTS_PATH}$project_dir
   ServerName $project_name
   ServerAlias $project_name
 
