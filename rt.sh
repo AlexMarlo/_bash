@@ -27,7 +27,8 @@ while true; do
 
   for if in $if_list; do
     echo -ne "$if: "
-    ifconfig $if | grep "inet addr:" | awk '{ i = index($0, "inet addr:"); i+=10; ip = substr($0,i,length($0) - i); i = index( ip, " "); print substr(ip,1,i); }'
+    ifconfig $if | grep "inet addr:" | awk '{ i = index($0, "inet addr:"); i+=10; ip = substr($0,i,length($0) - i); i = index( ip, " "); printf "%s - ", substr(ip,1,i); }'
+    ifconfig | grep $if | awk '{ i = index($0, "HWaddr "); i+=7; printf "%s\n", substr($0,i,length($0) - i);}'
   done 
   
   echo
