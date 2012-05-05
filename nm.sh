@@ -24,7 +24,7 @@ sudo service network-manager $1
 
 if [[ $1 == "stop" ]]
 then
-  if_list=`netstat -i | awk '{ if( index($0, "Kernel") == 0 &&  index($0, "Iface") == 0 && index($0, "lo") == 0) {i = index($0, "\t"); print substr($0,1,5);}}'`
+  if_list=`netstat -i | awk '{ if( NR != 1 && NR != 2 && index($0, "lo") == 0) {i = index($0, "\t"); print substr($0,1,5);}}'`
 
   for if in $if_list; do
     echo down $if
