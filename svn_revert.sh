@@ -20,4 +20,4 @@ c_h_blue="\E[1;34m"
 #~ echo -e ${c_green}Это зелёный цвет${c_std}
 #~ echo -e ${c_blue}Это голубой цвет${c_std}
 
-svn status | awk '{m=substr($0,0,1);f=substr($0,2,length($0));if(m=="M"||m="!"){system("svn revert """f);};if(m=="?"){system("rm -rf """f);};}'
+svn status | awk '{m=substr($0,0,1);f=substr($0,2,length($0));if(m=="M"||m=="!"){system("svn revert """f);};if(m=="?"){system("rm -rf """f);};}'
